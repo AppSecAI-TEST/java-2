@@ -1,12 +1,14 @@
 package oop.collec.col;
 
-public class GenericList<용주> {
+import java.util.Iterator;
+
+public class GenericList<용주> implements Iterable<용주> {
 
 	private 용주[] list;
 	private int index;
 	private int capacity;
 	private int current;
-	
+
 	public GenericList() {
 		list = (용주[])new Object[3];
 		index = 0;
@@ -35,18 +37,28 @@ public class GenericList<용주> {
 	}
 
 	//--데이터조회서비스--
-	
-	public boolean hasNext() {
-		
-		++current;
+	class Giterator implements Iterator<용주>{
+		private int current;
 
-		return index>current;
+		public Giterator() {
+			current=-1;
+		}	
+		public boolean hasNext() {
+
+			++current;
+
+			return index>current;
+
+		}
+
+		public 용주 next() {
+
+			return list[current];
+		}
 
 	}
 
-	public 용주 next() {
-		
-		return list[current];
+	public Giterator iterator() {
+		return new Giterator();
 	}
-	
 }

@@ -1,23 +1,21 @@
 package study;
 
 public class Grade {
-	
 	private int kor;
 	private int eng;
 	private int math;
 	
-	public Grade(){
+	public Grade() {
 		this(0,0,0);
 	}
 	
-	
-	public Grade(int kor, int eng, int math) {
-		this.kor=kor;
-		this.eng=eng;
-		this.math=math;
+	public Grade(int kor, int eng, int math)
+	{
+	this.kor = kor;
+	this.eng = eng;
+	this.math = math;
 	}
-
-
+	
 	public int getKor() {
 		return kor;
 	}
@@ -36,12 +34,15 @@ public class Grade {
 	public void setMath(int math) {
 		this.math = math;
 	}
-	
-	public double avg() {
-		return total()/3;
-	}
+
 	public int total() {
 		return kor+eng+math;
 	}
 
+	public double avg() {
+		return total()/3;
+	}
+	
+	
+	
 }
